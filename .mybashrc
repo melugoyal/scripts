@@ -1,0 +1,66 @@
+alias cat="cat -n"
+alias h="history"
+alias .="pwd"
+alias c="clear"
+alias soc="source ~/.bashrc"
+alias fn="find . -name"
+alias install="sudo apt-get install"
+alias shutdown="sudo shutdown -h now"
+alias restart="sudo shutdown -r now"
+alias py="python"
+alias touch="mytouch"
+
+sendto()                    #send email attachment using mutt to the specified recipient
+{
+mutt -a $1 -- $2
+}
+
+cdls()                      #cd and ls immediately
+{
+cd $1
+ls
+}
+
+mytouch()                   #automate formatting of .cpp and .py files
+{
+\touch $1
+stringA="$1"
+length=${#stringA}
+length=`expr $length - 2`
+stringB="${stringA:length}"
+length2=`expr $length-1`
+stringC="${stringA:length2}"
+if [ "$stringB" == "py" ]; then
+	echo "#!/usr/bin/python" >> $1
+    echo "import sys" >> $1
+    echo "def main():" >> $1
+    echo >> $1
+    echo >> $1
+    echo >> $1
+    echo >> $1
+    echo "if __name__ == '__main__':" >> $1
+    echo -e "\t main()" >> $1 
+fi
+if [ "$stringC" == "cpp" ]; then
+    echo "#include <iostream>" >> $1
+    echo "using namespace std;" >> $1
+    echo >> $1
+    echo >> $1
+    echo "int main()" >> $1
+    echo "{" >> $1
+    echo >> $1
+    echo "}" >> $1
+fi
+}
+
+cdl()                       #cd to last ls'ed directory    
+{
+history > history1
+grep ls history1 > history2
+var="$(\tail -1 history2)"
+num=`expr index "$var" ls`
+num=`expr $num+2`
+var2=${var:num}
+rm history1 history2
+cd $var2
+}
