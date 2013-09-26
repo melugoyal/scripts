@@ -15,7 +15,7 @@ alias ls="my_ls"
 git_ci()                    #automate git commit with commit message arg
 {
 git add .
-git commit $1
+git commit -m "$1"
 git push origin master
 }
 
