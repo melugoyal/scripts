@@ -11,6 +11,7 @@ alias restart="sudo shutdown -r now"
 alias py="python"
 alias touch="mytouch"
 alias ls="my_ls"
+alias ci="git_ci"
 
 git_ci()                    #automate git commit with commit message arg
 {
