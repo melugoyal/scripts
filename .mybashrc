@@ -69,6 +69,7 @@ if [ "$stringC" == "cpp" ]; then
     echo "#include <cmath>" >> $1
     echo "#include <vector>" >> $1
     echo "#include <string>" >> $1
+    echo "#include <map>" >> $1
     echo "using namespace std;" >> $1
     echo >> $1
     echo >> $1
