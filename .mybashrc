@@ -21,10 +21,16 @@ git push origin master
 }
 
 
-my_ls()                     #save last ls parameter as envvar l
+my_ls()                     #save last ls parameter (directory) as envvar l
 {
-export l="$1"
-\ls --color=auto $1
+num_arg=$#
+last_arg=${!#}
+export l="$last_arg"
+if [ "$num_arg" == "1" ]; then
+    \ls --color=auto $1
+else
+    \ls --color=auto $1 $2
+fi
 }
 
 cdl()                       #cd to last ls'ed directory    
