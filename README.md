@@ -1,4 +1,4 @@
-bashrc
+scripts
 ======
 
-my bashrc file, containing some useful aliases and functions that I wrote
+some useful scripts that i've written
