@@ -13,6 +13,10 @@ alias touch="mytouch"
 alias ls="my_ls"
 alias ci="git_ci"
 
+pastebin() {
+	python pastebin.py "$@"
+}
+
 git_ci()                    #automate git commit with commit message arg
 {
 git add .
